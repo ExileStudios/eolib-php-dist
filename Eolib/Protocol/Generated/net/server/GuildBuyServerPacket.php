@@ -15,7 +15,7 @@ use Eolib\Protocol\Generated\Net\PacketFamily;
 use Eolib\Protocol\SerializationError;
 
 /**
- * Deposit guild bank list reply
+ * Deposit guild bank reply
  */
 
 

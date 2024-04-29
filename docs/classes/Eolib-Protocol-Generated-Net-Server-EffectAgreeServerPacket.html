@@ -143,7 +143,7 @@
 
     </aside>
 
-            <p class="phpdocumentor-summary">Map tile effect</p>
+            <p class="phpdocumentor-summary">Effects playing on nearby tiles</p>
 
 
 
@@ -177,15 +177,9 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#property_coords">$coords</a>
+    <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#property_effects">$effects</a>
     <span>
-                        &nbsp;: <a href="classes/Eolib-Protocol-Generated-Coords.html"><abbr title="\Eolib\Protocol\Generated\Coords">Coords</abbr></a>            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#property_effectId">$effectId</a>
-    <span>
-                        &nbsp;: int            </span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 
     </dl>
@@ -232,15 +226,9 @@
 <dd>Returns the size of the data that this was deserialized from.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_getCoords">getCoords()</a>
+    <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_getEffects">getEffects()</a>
     <span>
-                                &nbsp;: <a href="classes/Eolib-Protocol-Generated-Coords.html"><abbr title="\Eolib\Protocol\Generated\Coords">Coords</abbr></a>    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_getEffectId">getEffectId()</a>
-    <span>
-                                &nbsp;: int    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
@@ -251,13 +239,7 @@
 <dd>Serializes an instance of `EffectAgreeServerPacket` to the provided `EoWriter`.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_setCoords">setCoords()</a>
-    <span>
-                                &nbsp;: void    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_setEffectId">setEffectId()</a>
+    <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_setEffects">setEffects()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -323,9 +305,9 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_coords">
-        $coords
-        <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#property_coords" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_effects">
+        $effects
+        <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#property_effects" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
@@ -340,41 +322,8 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/Eolib-Protocol-Generated-Coords.html"><abbr title="\Eolib\Protocol\Generated\Coords">Coords</abbr></a></span>
-    <span class="phpdocumentor-signature__name">$coords</span>
-    </code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_effectId">
-        $effectId
-        <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#property_effectId" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php"><a href="files/eolib-protocol-generated-net-server-effectagreeserverpacket.html"><abbr title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php">EffectAgreeServerPacket.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">27</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">int</span>
-    <span class="phpdocumentor-signature__name">$effectId</span>
+        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$effects</span>
     </code>
 
     
@@ -404,7 +353,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php"><a href="files/eolib-protocol-generated-net-server-effectagreeserverpacket.html"><abbr title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php">EffectAgreeServerPacket.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">139</span>
+    <span class="phpdocumentor-element-found-in__line">129</span>
 
     </aside>
 
@@ -440,7 +389,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php"><a href="files/eolib-protocol-generated-net-server-effectagreeserverpacket.html"><abbr title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php">EffectAgreeServerPacket.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">73</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
@@ -480,7 +429,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php"><a href="files/eolib-protocol-generated-net-server-effectagreeserverpacket.html"><abbr title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php">EffectAgreeServerPacket.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 
     </aside>
 
@@ -532,7 +481,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php"><a href="files/eolib-protocol-generated-net-server-effectagreeserverpacket.html"><abbr title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php">EffectAgreeServerPacket.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
@@ -572,7 +521,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php"><a href="files/eolib-protocol-generated-net-server-effectagreeserverpacket.html"><abbr title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php">EffectAgreeServerPacket.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -604,22 +553,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getCoords">
-        getCoords()
-        <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_getCoords" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getEffects">
+        getEffects()
+        <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_getEffects" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php"><a href="files/eolib-protocol-generated-net-server-effectagreeserverpacket.html"><abbr title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php">EffectAgreeServerPacket.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getCoords</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Eolib-Protocol-Generated-Coords.html"><abbr title="\Eolib\Protocol\Generated\Coords">Coords</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">getEffects</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -629,42 +578,7 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><a href="classes/Eolib-Protocol-Generated-Coords.html"><abbr title="\Eolib\Protocol\Generated\Coords">Coords</abbr></a></span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getEffectId">
-        getEffectId()
-        <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_getEffectId" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php"><a href="files/eolib-protocol-generated-net-server-effectagreeserverpacket.html"><abbr title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php">EffectAgreeServerPacket.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">48</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getEffectId</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">int</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             </section>
 
 </article>
@@ -682,7 +596,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php"><a href="files/eolib-protocol-generated-net-server-effectagreeserverpacket.html"><abbr title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php">EffectAgreeServerPacket.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
@@ -727,22 +641,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_setCoords">
-        setCoords()
-        <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_setCoords" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_setEffects">
+        setEffects()
+        <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_setEffects" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php"><a href="files/eolib-protocol-generated-net-server-effectagreeserverpacket.html"><abbr title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php">EffectAgreeServerPacket.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setCoords</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Eolib-Protocol-Generated-Coords.html"><abbr title="\Eolib\Protocol\Generated\Coords">Coords</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$coords</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">setEffects</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$effects</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -750,49 +664,8 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$coords</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Eolib-Protocol-Generated-Coords.html"><abbr title="\Eolib\Protocol\Generated\Coords">Coords</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_setEffectId">
-        setEffectId()
-        <a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_setEffectId" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php"><a href="files/eolib-protocol-generated-net-server-effectagreeserverpacket.html"><abbr title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php">EffectAgreeServerPacket.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">53</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setEffectId</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$effectId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$effectId</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                <span class="phpdocumentor-signature__argument__name">$effects</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -817,7 +690,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php"><a href="files/eolib-protocol-generated-net-server-effectagreeserverpacket.html"><abbr title="Eolib/Protocol/Generated/net/server/EffectAgreeServerPacket.php">EffectAgreeServerPacket.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">72</span>
 
     </aside>
 
@@ -961,8 +834,7 @@
                 <li>
                     <ul class="phpdocumentor-list -clean">
                                                     <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#property_byteSize">$byteSize<a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html"></li>
-                                                    <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#property_coords">$coords<a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html"></li>
-                                                    <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#property_effectId">$effectId<a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html"></li>
+                                                    <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#property_effects">$effects<a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html"></li>
                                             </ul>
                 </li>
             
@@ -974,11 +846,9 @@
                                             <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_deserialize">deserialize()</a></li>
                                             <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_family">family()</a></li>
                                             <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_getByteSize">getByteSize()</a></li>
-                                            <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_getCoords">getCoords()</a></li>
-                                            <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_getEffectId">getEffectId()</a></li>
+                                            <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_getEffects">getEffects()</a></li>
                                             <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_serialize">serialize()</a></li>
-                                            <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_setCoords">setCoords()</a></li>
-                                            <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_setEffectId">setEffectId()</a></li>
+                                            <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_setEffects">setEffects()</a></li>
                                             <li><a href="classes/Eolib-Protocol-Generated-Net-Server-EffectAgreeServerPacket.html#method_write">write()</a></li>
                                     </ul>
             </li>

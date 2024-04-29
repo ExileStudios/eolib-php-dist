@@ -25,8 +25,8 @@ class AvatarAdminServerPacket
     private $byteSize = 0;
     private int $casterId;
     private int $victimId;
-    private int $casterDirection;
     private int $damage;
+    private int $casterDirection;
     private int $hpPercentage;
     private bool $victimDied;
     private int $spellId;
@@ -60,16 +60,6 @@ class AvatarAdminServerPacket
         $this->victimId = $victimId;
     }
 
-    public function getCasterDirection(): int
-    {
-        return $this->casterDirection;
-    }
-
-    public function setCasterDirection(int $casterDirection): void
-    {
-        $this->casterDirection = $casterDirection;
-    }
-
     public function getDamage(): int
     {
         return $this->damage;
@@ -78,6 +68,16 @@ class AvatarAdminServerPacket
     public function setDamage(int $damage): void
     {
         $this->damage = $damage;
+    }
+
+    public function getCasterDirection(): int
+    {
+        return $this->casterDirection;
+    }
+
+    public function setCasterDirection(int $casterDirection): void
+    {
+        $this->casterDirection = $casterDirection;
     }
 
     public function getHpPercentage(): int
@@ -160,17 +160,17 @@ class AvatarAdminServerPacket
         }
         $writer->addShort($data->victimId);
 
-        if ($data->casterDirection === null)
-        {
-            throw new SerializationError('casterDirection must be provided.');
-        }
-        $writer->addChar((int) $data->casterDirection);
-
         if ($data->damage === null)
         {
             throw new SerializationError('damage must be provided.');
         }
         $writer->addThree($data->damage);
+
+        if ($data->casterDirection === null)
+        {
+            throw new SerializationError('casterDirection must be provided.');
+        }
+        $writer->addChar((int) $data->casterDirection);
 
         if ($data->hpPercentage === null)
         {
@@ -207,8 +207,8 @@ class AvatarAdminServerPacket
             $reader_start_position = $reader->getPosition();
             $data->casterId = $reader->getShort();
             $data->victimId = $reader->getShort();
-            $data->casterDirection = Direction($reader->getChar());
             $data->damage = $reader->getThree();
+            $data->casterDirection = Direction($reader->getChar());
             $data->hpPercentage = $reader->getChar();
             $data->victimDied = $reader->getChar() !== 0;
             $data->spellId = $reader->getShort();
@@ -227,7 +227,7 @@ class AvatarAdminServerPacket
      * @return string
      */
     public function __toString(): string {
-        return "AvatarAdminServerPacket(byteSize=' . $this->byteSize . '', casterId=' . $this->casterId . '', victimId=' . $this->victimId . '', casterDirection=' . $this->casterDirection . '', damage=' . $this->damage . '', hpPercentage=' . $this->hpPercentage . '', victimDied=' . $this->victimDied . '', spellId=' . $this->spellId . ')";
+        return "AvatarAdminServerPacket(byteSize=' . $this->byteSize . '', casterId=' . $this->casterId . '', victimId=' . $this->victimId . '', damage=' . $this->damage . '', casterDirection=' . $this->casterDirection . '', hpPercentage=' . $this->hpPercentage . '', victimDied=' . $this->victimDied . '', spellId=' . $this->spellId . ')";
     }
 
 }

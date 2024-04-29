@@ -10,21 +10,20 @@ namespace Eolib\Protocol\Generated\Net\Server;
 
 use Eolib\Data\EoReader;
 use Eolib\Data\EoWriter;
-use Eolib\Protocol\Generated\Coords;
 use Eolib\Protocol\Generated\Net\PacketAction;
 use Eolib\Protocol\Generated\Net\PacketFamily;
+use Eolib\Protocol\Generated\Net\server\TileEffect;
 use Eolib\Protocol\SerializationError;
 
 /**
- * Map tile effect
+ * Effects playing on nearby tiles
  */
 
 
 class EffectAgreeServerPacket
 {
     private $byteSize = 0;
-    private Coords $coords;
-    private int $effectId;
+    private array $effects;
 
     /**
      * Returns the size of the data that this was deserialized from.
@@ -35,24 +34,14 @@ class EffectAgreeServerPacket
         return $this->byteSize;
     }
 
-    public function getCoords(): Coords
+    public function getEffects(): array
     {
-        return $this->coords;
+        return $this->effects;
     }
 
-    public function setCoords(Coords $coords): void
+    public function setEffects(array $effects): void
     {
-        $this->coords = $coords;
-    }
-
-    public function getEffectId(): int
-    {
-        return $this->effectId;
-    }
-
-    public function setEffectId(int $effectId): void
-    {
-        $this->effectId = $effectId;
+        $this->effects = $effects;
     }
 
     /**
@@ -93,18 +82,15 @@ class EffectAgreeServerPacket
      * @param EffectAgreeServerPacket $data The data to serialize.
      */
     public static function serialize(EoWriter $writer, EffectAgreeServerPacket $data): void {
-        if ($data->coords === null)
+        if ($data->effects === null)
         {
-            throw new SerializationError('coords must be provided.');
+            throw new SerializationError('effects must be provided.');
         }
-        Coords::serialize($writer, $data->coords);
-
-        if ($data->effectId === null)
+        for ($i = 0; $i < count($data->effects); $i++)
         {
-            throw new SerializationError('effectId must be provided.');
-        }
-        $writer->addShort($data->effectId);
+            TileEffect::serialize($writer, $data->effects[$i]);
 
+        }
 
     }
 
@@ -120,8 +106,12 @@ class EffectAgreeServerPacket
         $old_chunked_reading_mode = $reader->isChunkedReadingMode();
         try {
             $reader_start_position = $reader->getPosition();
-            $data->coords = Coords::deserialize($reader);
-            $data->effectId = $reader->getShort();
+            $effects_length = (int) $reader->remaining() / 4;
+            $data->effects = [];
+            for ($i = 0; $i < $effects_length; $i++)
+            {
+                $data->effects[] = TileEffect::deserialize($reader);
+            }
 
             $data->byteSize = $reader->getPosition() - $reader_start_position;
 
@@ -137,7 +127,7 @@ class EffectAgreeServerPacket
      * @return string
      */
     public function __toString(): string {
-        return "EffectAgreeServerPacket(byteSize=' . $this->byteSize . '', coords=' . $this->coords . '', effectId=' . $this->effectId . ')";
+        return "EffectAgreeServerPacket(byteSize=' . $this->byteSize . '', effects=' . $this->effects . ')";
     }
 
 }

@@ -25,6 +25,7 @@ class GuildTakeClientPacket
     private $byteSize = 0;
     private int $sessionId;
     private int $infoType;
+    private string $guildTag = "";
 
     /**
      * Returns the size of the data that this was deserialized from.
@@ -53,6 +54,16 @@ class GuildTakeClientPacket
     public function setInfoType(int $infoType): void
     {
         $this->infoType = $infoType;
+    }
+
+    public function getGuildTag(): string
+    {
+        return $this->guildTag;
+    }
+
+    public function setGuildTag(string $guildTag): void
+    {
+        $this->guildTag = $guildTag;
     }
 
     /**
@@ -105,6 +116,16 @@ class GuildTakeClientPacket
         }
         $writer->addShort((int) $data->infoType);
 
+        if ($data->guildTag === null)
+        {
+            throw new SerializationError('guildTag must be provided.');
+        }
+        if (strlen($data->guildTag) != 3)
+        {
+            throw new SerializationError("Expected length of guildTag to be exactly 3, got {strlen($data->guildTag)}.");
+        }
+        $writer->addFixedString($data->guildTag, 3, false);
+
 
     }
 
@@ -122,6 +143,7 @@ class GuildTakeClientPacket
             $reader_start_position = $reader->getPosition();
             $data->sessionId = $reader->getInt();
             $data->infoType = GuildInfoType($reader->getShort());
+            $data->guildTag = $reader->getFixedString(3, false);
 
             $data->byteSize = $reader->getPosition() - $reader_start_position;
 
@@ -137,7 +159,7 @@ class GuildTakeClientPacket
      * @return string
      */
     public function __toString(): string {
-        return "GuildTakeClientPacket(byteSize=' . $this->byteSize . '', sessionId=' . $this->sessionId . '', infoType=' . $this->infoType . ')";
+        return "GuildTakeClientPacket(byteSize=' . $this->byteSize . '', sessionId=' . $this->sessionId . '', infoType=' . $this->infoType . '', guildTag=' . $this->guildTag . ')";
     }
 
 }

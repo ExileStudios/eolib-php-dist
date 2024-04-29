@@ -12,7 +12,7 @@ use Eolib\Data\EoReader;
 use Eolib\Data\EoWriter;
 use Eolib\Protocol\Generated\Net\server\CharacterBaseStats;
 use Eolib\Protocol\Generated\Net\server\CharacterElementalStats;
-use Eolib\Protocol\Generated\Net\server\CharacterSecondaryStats;
+use Eolib\Protocol\Generated\Net\server\CharacterSecondaryStatsInfoLookup;
 use Eolib\Protocol\SerializationError;
 
 
@@ -24,7 +24,7 @@ class CharacterStatsInfoLookup
     private int $tp;
     private int $maxTp;
     private CharacterBaseStats $baseStats;
-    private CharacterSecondaryStats $secondaryStats;
+    private CharacterSecondaryStatsInfoLookup $secondaryStats;
     private CharacterElementalStats $elementalStats;
 
     /**
@@ -86,12 +86,12 @@ class CharacterStatsInfoLookup
         $this->baseStats = $baseStats;
     }
 
-    public function getSecondaryStats(): CharacterSecondaryStats
+    public function getSecondaryStats(): CharacterSecondaryStatsInfoLookup
     {
         return $this->secondaryStats;
     }
 
-    public function setSecondaryStats(CharacterSecondaryStats $secondaryStats): void
+    public function setSecondaryStats(CharacterSecondaryStatsInfoLookup $secondaryStats): void
     {
         $this->secondaryStats = $secondaryStats;
     }
@@ -148,7 +148,7 @@ class CharacterStatsInfoLookup
         {
             throw new SerializationError('secondaryStats must be provided.');
         }
-        CharacterSecondaryStats::serialize($writer, $data->secondaryStats);
+        CharacterSecondaryStatsInfoLookup::serialize($writer, $data->secondaryStats);
 
         if ($data->elementalStats === null)
         {
@@ -176,7 +176,7 @@ class CharacterStatsInfoLookup
             $data->tp = $reader->getShort();
             $data->maxTp = $reader->getShort();
             $data->baseStats = CharacterBaseStats::deserialize($reader);
-            $data->secondaryStats = CharacterSecondaryStats::deserialize($reader);
+            $data->secondaryStats = CharacterSecondaryStatsInfoLookup::deserialize($reader);
             $data->elementalStats = CharacterElementalStats::deserialize($reader);
 
             $data->byteSize = $reader->getPosition() - $reader_start_position;

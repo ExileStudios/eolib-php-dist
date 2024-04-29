@@ -88,15 +88,15 @@ class NpcAgreeServerPacket
         {
             throw new SerializationError('npcsCount must be provided.');
         }
-        $writer->addShort($data->npcsCount);
+        $writer->addChar($data->npcsCount);
 
         if ($data->npcs === null)
         {
             throw new SerializationError('npcs must be provided.');
         }
-        if (strlen($data->npcs) > 64008)
+        if (strlen($data->npcs) > 252)
         {
-            throw new SerializationError("Expected length of npcs to be 64008 or less, got {strlen($data->npcs)}.");
+            throw new SerializationError("Expected length of npcs to be 252 or less, got {strlen($data->npcs)}.");
         }
         for ($i = 0; $i < $data->npcsCount; $i++)
         {
@@ -118,7 +118,7 @@ class NpcAgreeServerPacket
         $old_chunked_reading_mode = $reader->isChunkedReadingMode();
         try {
             $reader_start_position = $reader->getPosition();
-            $data->npcsCount = $reader->getShort();
+            $data->npcsCount = $reader->getChar();
             $data->npcs = [];
             for ($i = 0; $i < $data->npcsCount; $i++)
             {

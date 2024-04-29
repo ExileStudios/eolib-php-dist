@@ -12,18 +12,18 @@ use Eolib\Data\EoReader;
 use Eolib\Data\EoWriter;
 use Eolib\Protocol\Generated\Net\PacketAction;
 use Eolib\Protocol\Generated\Net\PacketFamily;
+use Eolib\Protocol\Generated\Net\server\PlayerEffect;
 use Eolib\Protocol\SerializationError;
 
 /**
- * Nearby player doing an effect
+ * Effects playing on nearby players
  */
 
 
 class EffectPlayerServerPacket
 {
     private $byteSize = 0;
-    private int $playerId;
-    private int $effectId;
+    private array $effects;
 
     /**
      * Returns the size of the data that this was deserialized from.
@@ -34,24 +34,14 @@ class EffectPlayerServerPacket
         return $this->byteSize;
     }
 
-    public function getPlayerId(): int
+    public function getEffects(): array
     {
-        return $this->playerId;
+        return $this->effects;
     }
 
-    public function setPlayerId(int $playerId): void
+    public function setEffects(array $effects): void
     {
-        $this->playerId = $playerId;
-    }
-
-    public function getEffectId(): int
-    {
-        return $this->effectId;
-    }
-
-    public function setEffectId(int $effectId): void
-    {
-        $this->effectId = $effectId;
+        $this->effects = $effects;
     }
 
     /**
@@ -92,18 +82,15 @@ class EffectPlayerServerPacket
      * @param EffectPlayerServerPacket $data The data to serialize.
      */
     public static function serialize(EoWriter $writer, EffectPlayerServerPacket $data): void {
-        if ($data->playerId === null)
+        if ($data->effects === null)
         {
-            throw new SerializationError('playerId must be provided.');
+            throw new SerializationError('effects must be provided.');
         }
-        $writer->addShort($data->playerId);
-
-        if ($data->effectId === null)
+        for ($i = 0; $i < count($data->effects); $i++)
         {
-            throw new SerializationError('effectId must be provided.');
-        }
-        $writer->addThree($data->effectId);
+            PlayerEffect::serialize($writer, $data->effects[$i]);
 
+        }
 
     }
 
@@ -119,8 +106,12 @@ class EffectPlayerServerPacket
         $old_chunked_reading_mode = $reader->isChunkedReadingMode();
         try {
             $reader_start_position = $reader->getPosition();
-            $data->playerId = $reader->getShort();
-            $data->effectId = $reader->getThree();
+            $effects_length = (int) $reader->remaining() / 5;
+            $data->effects = [];
+            for ($i = 0; $i < $effects_length; $i++)
+            {
+                $data->effects[] = PlayerEffect::deserialize($reader);
+            }
 
             $data->byteSize = $reader->getPosition() - $reader_start_position;
 
@@ -136,7 +127,7 @@ class EffectPlayerServerPacket
      * @return string
      */
     public function __toString(): string {
-        return "EffectPlayerServerPacket(byteSize=' . $this->byteSize . '', playerId=' . $this->playerId . '', effectId=' . $this->effectId . ')";
+        return "EffectPlayerServerPacket(byteSize=' . $this->byteSize . '', effects=' . $this->effects . ')";
     }
 
 }

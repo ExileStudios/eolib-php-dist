@@ -106,11 +106,9 @@ class JukeboxMsgClientPacket
         $old_chunked_reading_mode = $reader->isChunkedReadingMode();
         try {
             $reader_start_position = $reader->getPosition();
-            $reader->setChunkedReadingMode(true);
             $reader->getChar();
             $reader->getChar();
             $data->trackId = $reader->getShort();
-            $reader->setChunkedReadingMode(false);
 
             $data->byteSize = $reader->getPosition() - $reader_start_position;
 
