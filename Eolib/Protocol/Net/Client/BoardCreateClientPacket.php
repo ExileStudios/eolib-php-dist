@@ -1,0 +1,195 @@
+<?php
+/**
+ * Generated from the eo-protocol XML specification.
+ *
+ * This file should not be modified.
+ * Changes will be lost when code is regenerated.
+ */
+
+namespace Eolib\Protocol\Net\Client;
+
+use Eolib\Data\EoReader;
+use Eolib\Data\EoWriter;
+use Eolib\Protocol\Net\PacketAction;
+use Eolib\Protocol\Net\PacketFamily;
+use Eolib\Protocol\SerializationError;
+
+/**
+ * Posting a new message to a town board
+ */
+
+
+class BoardCreateClientPacket
+{
+    private int $byteSize = 0;
+    /** @var int */
+    private int $boardId;
+    /** @var string */
+    private string $postSubject = "";
+    /** @var string */
+    private string $postBody = "";
+
+    /**
+     * Returns the size of the data that this was deserialized from.
+     *
+     * @return int The size of the data that this was deserialized from.
+     */
+    public function getByteSize(): int {
+        return $this->byteSize;
+    }
+
+    /**
+     * Sets the size of the data that this was deserialized from.
+     *
+     * @param int $byteSize The size of the data that this was deserialized from.
+     */
+    public function setByteSize(int $byteSize): void {
+        $this->byteSize = $byteSize;
+    }
+
+    /** @return int */
+    public function getBoardId(): int
+    {
+        return $this->boardId;
+    }
+
+    /** @param int $boardId */
+    public function setBoardId(int $boardId): void
+    {
+        $this->boardId = $boardId;
+    }
+
+
+
+    /** @return string */
+    public function getPostSubject(): string
+    {
+        return $this->postSubject;
+    }
+
+    /** @param string $postSubject */
+    public function setPostSubject(string $postSubject): void
+    {
+        $this->postSubject = $postSubject;
+    }
+
+
+
+    /** @return string */
+    public function getPostBody(): string
+    {
+        return $this->postBody;
+    }
+
+    /** @param string $postBody */
+    public function setPostBody(string $postBody): void
+    {
+        $this->postBody = $postBody;
+    }
+
+
+
+    /**
+     * Returns the packet family associated with this packet.
+     *
+     * @return int The packet family associated with this packet.
+     */
+    public static function family(): int
+    {
+        return PacketFamily::BOARD;
+    }
+
+    /**
+     * Returns the packet action associated with this packet.
+     *
+     * @return int The packet action associated with this packet.
+     */
+    public static function action(): int
+    {
+        return PacketAction::CREATE;
+    }
+
+    /**
+     * Serializes and writes this packet to the provided EoWriter.
+     *
+     * @param EoWriter $writer The writer that this packet will be written to.
+     */
+    public function write(EoWriter $writer): void
+    {
+        BoardCreateClientPacket::serialize($writer, $this);
+    }
+
+
+    /**
+     * Serializes an instance of `BoardCreateClientPacket` to the provided `EoWriter`.
+     *
+     * @param EoWriter $writer The writer that the data will be serialized to.
+     * @param BoardCreateClientPacket $data The data to serialize.
+     */
+    public static function serialize(EoWriter $writer, BoardCreateClientPacket $data): void {
+        if ($data->getBoardId() == null)
+        {
+            throw new SerializationError('boardId must be provided.');
+        }
+        $writer->addShort($data->getBoardId());
+
+        $writer->addByte(0xFF);
+        if ($data->getPostSubject() == null)
+        {
+            throw new SerializationError('postSubject must be provided.');
+        }
+        $writer->addString($data->getPostSubject());
+
+        $writer->addByte(0xFF);
+        if ($data->getPostBody() == null)
+        {
+            throw new SerializationError('postBody must be provided.');
+        }
+        $writer->addString($data->getPostBody());
+
+        $writer->addByte(0xFF);
+
+    }
+
+    /**
+     * Deserializes an instance of `BoardCreateClientPacket` from the provided `EoReader`.
+     *
+     * @param EoReader $reader The reader that the data will be deserialized from.
+     * @return BoardCreateClientPacket The deserialized data.
+     */
+    public static function deserialize(EoReader $reader): BoardCreateClientPacket
+    {
+        $data = new BoardCreateClientPacket();
+        $old_chunked_reading_mode = $reader->isChunkedReadingMode();
+        try {
+            $reader_start_position = $reader->getPosition();
+            $reader->setChunkedReadingMode(true);
+            $data->setBoardId($reader->getShort());
+            $reader->nextChunk();
+            $data->setPostSubject($reader->getString());
+            $reader->nextChunk();
+            $data->setPostBody($reader->getString());
+            $reader->nextChunk();
+            $reader->setChunkedReadingMode(false);
+
+            $data->setByteSize($reader->getPosition() - $reader_start_position);
+
+            return $data;
+        } finally {
+            $reader->setChunkedReadingMode($old_chunked_reading_mode);
+        }
+    }
+
+    /**
+     * Returns a string representation of the object.
+     *
+     * @return string
+     */
+    public function __toString(): string {
+        return "BoardCreateClientPacket(byteSize=$this->byteSize, boardId=".var_export($this->boardId, true).", postSubject=$this->postSubject, postBody=$this->postBody)";
+    }
+
+}
+
+
+

@@ -136,7 +136,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
     </aside>
 
@@ -173,7 +173,7 @@ essential for networking applications or data storage.</p>
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Eolib-Data-EoWriter.html#property_data">$data</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+                        &nbsp;: <abbr title="\SplFixedArray">SplFixedArray</abbr>&lt;string|int, int&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
@@ -219,6 +219,20 @@ essential for networking applications or data storage.</p>
 <dd>Adds an encoded character to the data array as a 1-byte integer.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Eolib-Data-EoWriter.html#method_addEncodedString">addEncodedString()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Adds a string to the data array, encoded in ANSI format and then encoded with the EO encryption scheme.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Eolib-Data-EoWriter.html#method_addFixedEncodedString">addFixedEncodedString()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Adds a fixed-length string to the data array, optionally padded to length with `0xFF` and then encoded with the EO encryption scheme.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Eolib-Data-EoWriter.html#method_addFixedString">addFixedString()</a>
     <span>
                                 &nbsp;: void    </span>
@@ -254,18 +268,18 @@ essential for networking applications or data storage.</p>
 <dd>Adds an encoded integer to the data array as a 3-byte integer.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Eolib-Data-EoWriter.html#method_getLength">getLength()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Returns the current length of the internal data array.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Eolib-Data-EoWriter.html#method_getStringSanitizationMode">getStringSanitizationMode()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns the current state of string sanitization mode.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Eolib-Data-EoWriter.html#method_length">length()</a>
-    <span>
-                                &nbsp;: int    </span>
-</dt>
-<dd>Returns the current length of the internal data array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Eolib-Data-EoWriter.html#method_setStringSanitizationMode">setStringSanitizationMode()</a>
@@ -277,9 +291,16 @@ essential for networking applications or data storage.</p>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Eolib-Data-EoWriter.html#method_toByteArray">toByteArray()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: array&lt;string|int, int&gt;    </span>
 </dt>
 <dd>Converts the internal data array to a standard PHP array of bytes.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Eolib-Data-EoWriter.html#method_toByteString">toByteString()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Converts the internal data array to a string of bytes.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/Eolib-Data-EoWriter.html#method_addBytesWithLength">addBytesWithLength()</a>
@@ -291,7 +312,7 @@ essential for networking applications or data storage.</p>
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/Eolib-Data-EoWriter.html#method_addPadding">addPadding()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: array&lt;string|int, int&gt;    </span>
 </dt>
 <dd>Adds padding to a byte array up to a specified length.</dd>
 
@@ -312,7 +333,7 @@ essential for networking applications or data storage.</p>
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/Eolib-Data-EoWriter.html#method_encodeAnsi">encodeAnsi()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: array&lt;string|int, int&gt;    </span>
 </dt>
 <dd>Encodes a string from UTF-8 to ANSI.</dd>
 
@@ -354,19 +375,19 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__type"><abbr title="\SplFixedArray">SplFixedArray</abbr>&lt;string|int, int&gt;</span>
     <span class="phpdocumentor-signature__name">$data</span>
     </code>
 
     
-        <section class="phpdocumentor-description"><p>The internal data storage where all bytes are accumulated.</p>
+        <section class="phpdocumentor-description"><p>The internal data structure for storing bytes.</p>
 </section>
 
     
@@ -389,7 +410,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
@@ -429,7 +450,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -461,7 +482,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -522,7 +543,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
@@ -530,7 +551,7 @@ essential for networking applications or data storage.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">addBytes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bytes</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">addBytes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bytes</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -539,7 +560,7 @@ essential for networking applications or data storage.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$bytes</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The array of bytes to add.</p>
@@ -566,7 +587,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">65</span>
 
     </aside>
 
@@ -574,7 +595,7 @@ essential for networking applications or data storage.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">addChar</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$number</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">addChar</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$number</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -583,7 +604,7 @@ essential for networking applications or data storage.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$number</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The character code to add (must be within EO_CHAR_MAX - 1).</p>
@@ -619,6 +640,129 @@ essential for networking applications or data storage.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_addEncodedString">
+        addEncodedString()
+        <a href="classes/Eolib-Data-EoWriter.html#method_addEncodedString" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">147</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Adds a string to the data array, encoded in ANSI format and then encoded with the EO encryption scheme.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">addEncodedString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$string</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The string to encode and add.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addFixedEncodedString">
+        addFixedEncodedString()
+        <a href="classes/Eolib-Data-EoWriter.html#method_addFixedEncodedString" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">164</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Adds a fixed-length string to the data array, optionally padded to length with `0xFF` and then encoded with the EO encryption scheme.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">addFixedEncodedString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$string</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$length</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$padded</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The string to encode and add.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$length</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The fixed length of the string.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$padded</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Whether to pad the string with <code class="prettyprint">0xFF</code> to the fixed length.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/Eolib-Data-EoWriter.html#method_addFixedEncodedString#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ValueError">ValueError</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the string length does not match the specified length when not padded.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_addFixedString">
         addFixedString()
         <a href="classes/Eolib-Data-EoWriter.html#method_addFixedString" class="headerlink"><i class="fas fa-link"></i></a>
@@ -627,7 +771,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">128</span>
+    <span class="phpdocumentor-element-found-in__line">131</span>
 
     </aside>
 
@@ -706,7 +850,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">104</span>
 
     </aside>
 
@@ -714,7 +858,7 @@ essential for networking applications or data storage.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">addInt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$number</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">addInt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$number</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -723,7 +867,7 @@ essential for networking applications or data storage.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$number</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The integer to add (must be within EO_INT_MAX - 1).</p>
@@ -767,7 +911,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
@@ -775,7 +919,7 @@ essential for networking applications or data storage.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">addShort</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$number</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">addShort</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$number</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -784,7 +928,7 @@ essential for networking applications or data storage.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$number</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The short to add (must be within EO_SHORT_MAX - 1).</p>
@@ -828,7 +972,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">113</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
     </aside>
 
@@ -872,7 +1016,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 
     </aside>
 
@@ -880,7 +1024,7 @@ essential for networking applications or data storage.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">addThree</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$number</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">addThree</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$number</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -889,7 +1033,7 @@ essential for networking applications or data storage.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$number</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The integer to add (must be within EO_THREE_MAX - 1).</p>
@@ -925,6 +1069,46 @@ essential for networking applications or data storage.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getLength">
+        getLength()
+        <a href="classes/Eolib-Data-EoWriter.html#method_getLength" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">226</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the current length of the internal data array.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getLength</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The number of bytes in the internal data array.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getStringSanitizationMode">
         getStringSanitizationMode()
         <a href="classes/Eolib-Data-EoWriter.html#method_getStringSanitizationMode" class="headerlink"><i class="fas fa-link"></i></a>
@@ -933,7 +1117,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">154</span>
+    <span class="phpdocumentor-element-found-in__line">192</span>
 
     </aside>
 
@@ -965,46 +1149,6 @@ essential for networking applications or data storage.</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_length">
-        length()
-        <a href="classes/Eolib-Data-EoWriter.html#method_length" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">174</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Returns the current length of the internal data array.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">length</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">int</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>The number of bytes in the internal data array.</p>
-</section>
-
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_setStringSanitizationMode">
         setStringSanitizationMode()
         <a href="classes/Eolib-Data-EoWriter.html#method_setStringSanitizationMode" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1013,7 +1157,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">144</span>
+    <span class="phpdocumentor-element-found-in__line">182</span>
 
     </aside>
 
@@ -1057,7 +1201,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">164</span>
+    <span class="phpdocumentor-element-found-in__line">202</span>
 
     </aside>
 
@@ -1065,7 +1209,7 @@ essential for networking applications or data storage.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">toByteArray</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">toByteArray</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, int&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1075,9 +1219,49 @@ essential for networking applications or data storage.</p>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, int&gt;</span>
                     &mdash;
                 <section class="phpdocumentor-description"><p>An array of byte values.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_toByteString">
+        toByteString()
+        <a href="classes/Eolib-Data-EoWriter.html#method_toByteString" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">214</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Converts the internal data array to a string of bytes.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">toByteString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A string of bytes.</p>
 </section>
 
             </section>
@@ -1097,7 +1281,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">185</span>
+    <span class="phpdocumentor-element-found-in__line">237</span>
 
     </aside>
 
@@ -1105,7 +1289,7 @@ essential for networking applications or data storage.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">addBytesWithLength</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bytes</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bytesLength</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">addBytesWithLength</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bytes</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bytesLength</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1114,7 +1298,7 @@ essential for networking applications or data storage.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$bytes</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The bytes to add.</p>
@@ -1150,7 +1334,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">230</span>
+    <span class="phpdocumentor-element-found-in__line">282</span>
 
     </aside>
 
@@ -1158,7 +1342,7 @@ essential for networking applications or data storage.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">addPadding</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bytes</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$length</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">addPadding</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bytes</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$length</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, int&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1167,7 +1351,7 @@ essential for networking applications or data storage.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$bytes</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The byte array to pad.</p>
@@ -1189,7 +1373,7 @@ essential for networking applications or data storage.</p>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, int&gt;</span>
                     &mdash;
                 <section class="phpdocumentor-description"><p>The padded byte array.</p>
 </section>
@@ -1211,7 +1395,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">216</span>
+    <span class="phpdocumentor-element-found-in__line">268</span>
 
     </aside>
 
@@ -1281,7 +1465,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">252</span>
+    <span class="phpdocumentor-element-found-in__line">303</span>
 
     </aside>
 
@@ -1360,7 +1544,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">269</span>
+    <span class="phpdocumentor-element-found-in__line">320</span>
 
     </aside>
 
@@ -1368,7 +1552,7 @@ essential for networking applications or data storage.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">encodeAnsi</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$string</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">encodeAnsi</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$string</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, int&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1390,7 +1574,7 @@ essential for networking applications or data storage.</p>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, int&gt;</span>
                     &mdash;
                 <section class="phpdocumentor-description"><p>The ANSI-encoded string as an array of bytes.</p>
 </section>
@@ -1412,7 +1596,7 @@ essential for networking applications or data storage.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Eolib/Data/EoWriter.php"><a href="files/eolib-data-eowriter.html"><abbr title="Eolib/Data/EoWriter.php">EoWriter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">198</span>
+    <span class="phpdocumentor-element-found-in__line">250</span>
 
     </aside>
 
@@ -1420,7 +1604,7 @@ essential for networking applications or data storage.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">sanitizeString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$bytes</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">sanitizeString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$bytes</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1429,7 +1613,7 @@ essential for networking applications or data storage.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$bytes</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The array of bytes representing the string to sanitize.</p>
@@ -1567,15 +1751,18 @@ essential for networking applications or data storage.</p>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_addByte">addByte()</a></li>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_addBytes">addBytes()</a></li>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_addChar">addChar()</a></li>
+                                            <li><a href="classes/Eolib-Data-EoWriter.html#method_addEncodedString">addEncodedString()</a></li>
+                                            <li><a href="classes/Eolib-Data-EoWriter.html#method_addFixedEncodedString">addFixedEncodedString()</a></li>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_addFixedString">addFixedString()</a></li>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_addInt">addInt()</a></li>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_addShort">addShort()</a></li>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_addString">addString()</a></li>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_addThree">addThree()</a></li>
+                                            <li><a href="classes/Eolib-Data-EoWriter.html#method_getLength">getLength()</a></li>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_getStringSanitizationMode">getStringSanitizationMode()</a></li>
-                                            <li><a href="classes/Eolib-Data-EoWriter.html#method_length">length()</a></li>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_setStringSanitizationMode">setStringSanitizationMode()</a></li>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_toByteArray">toByteArray()</a></li>
+                                            <li><a href="classes/Eolib-Data-EoWriter.html#method_toByteString">toByteString()</a></li>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_addBytesWithLength">addBytesWithLength()</a></li>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_addPadding">addPadding()</a></li>
                                             <li><a href="classes/Eolib-Data-EoWriter.html#method_checkNumberSize">checkNumberSize()</a></li>

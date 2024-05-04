@@ -7,5 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'ProtocolCodeGenerator\\' => array($baseDir . '/ProtocolCodeGenerator'),
+    'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
+    'Eolib\\Tests\\' => array($baseDir . '/Tests/Eolib'),
     'Eolib\\' => array($baseDir . '/Eolib'),
+    'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
 );

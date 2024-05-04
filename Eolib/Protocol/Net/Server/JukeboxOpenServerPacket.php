@@ -1,0 +1,164 @@
+<?php
+/**
+ * Generated from the eo-protocol XML specification.
+ *
+ * This file should not be modified.
+ * Changes will be lost when code is regenerated.
+ */
+
+namespace Eolib\Protocol\Net\Server;
+
+use Eolib\Data\EoReader;
+use Eolib\Data\EoWriter;
+use Eolib\Protocol\Net\PacketAction;
+use Eolib\Protocol\Net\PacketFamily;
+use Eolib\Protocol\SerializationError;
+
+/**
+ * Reply to opening the jukebox listing
+ */
+
+
+class JukeboxOpenServerPacket
+{
+    private int $byteSize = 0;
+    /** @var int */
+    private int $mapId;
+    /** @var string */
+    private string $jukeboxPlayer = "";
+
+    /**
+     * Returns the size of the data that this was deserialized from.
+     *
+     * @return int The size of the data that this was deserialized from.
+     */
+    public function getByteSize(): int {
+        return $this->byteSize;
+    }
+
+    /**
+     * Sets the size of the data that this was deserialized from.
+     *
+     * @param int $byteSize The size of the data that this was deserialized from.
+     */
+    public function setByteSize(int $byteSize): void {
+        $this->byteSize = $byteSize;
+    }
+
+    /** @return int */
+    public function getMapId(): int
+    {
+        return $this->mapId;
+    }
+
+    /** @param int $mapId */
+    public function setMapId(int $mapId): void
+    {
+        $this->mapId = $mapId;
+    }
+
+
+
+    /** @return string */
+    public function getJukeboxPlayer(): string
+    {
+        return $this->jukeboxPlayer;
+    }
+
+    /** @param string $jukeboxPlayer */
+    public function setJukeboxPlayer(string $jukeboxPlayer): void
+    {
+        $this->jukeboxPlayer = $jukeboxPlayer;
+    }
+
+
+
+    /**
+     * Returns the packet family associated with this packet.
+     *
+     * @return int The packet family associated with this packet.
+     */
+    public static function family(): int
+    {
+        return PacketFamily::JUKEBOX;
+    }
+
+    /**
+     * Returns the packet action associated with this packet.
+     *
+     * @return int The packet action associated with this packet.
+     */
+    public static function action(): int
+    {
+        return PacketAction::OPEN;
+    }
+
+    /**
+     * Serializes and writes this packet to the provided EoWriter.
+     *
+     * @param EoWriter $writer The writer that this packet will be written to.
+     */
+    public function write(EoWriter $writer): void
+    {
+        JukeboxOpenServerPacket::serialize($writer, $this);
+    }
+
+
+    /**
+     * Serializes an instance of `JukeboxOpenServerPacket` to the provided `EoWriter`.
+     *
+     * @param EoWriter $writer The writer that the data will be serialized to.
+     * @param JukeboxOpenServerPacket $data The data to serialize.
+     */
+    public static function serialize(EoWriter $writer, JukeboxOpenServerPacket $data): void {
+        if ($data->getMapId() == null)
+        {
+            throw new SerializationError('mapId must be provided.');
+        }
+        $writer->addShort($data->getMapId());
+
+        if ($data->getJukeboxPlayer() == null)
+        {
+            throw new SerializationError('jukeboxPlayer must be provided.');
+        }
+        $writer->addString($data->getJukeboxPlayer());
+
+
+    }
+
+    /**
+     * Deserializes an instance of `JukeboxOpenServerPacket` from the provided `EoReader`.
+     *
+     * @param EoReader $reader The reader that the data will be deserialized from.
+     * @return JukeboxOpenServerPacket The deserialized data.
+     */
+    public static function deserialize(EoReader $reader): JukeboxOpenServerPacket
+    {
+        $data = new JukeboxOpenServerPacket();
+        $old_chunked_reading_mode = $reader->isChunkedReadingMode();
+        try {
+            $reader_start_position = $reader->getPosition();
+            $data->setMapId($reader->getShort());
+            $data->setJukeboxPlayer($reader->getString());
+
+            $data->setByteSize($reader->getPosition() - $reader_start_position);
+
+            return $data;
+        } finally {
+            $reader->setChunkedReadingMode($old_chunked_reading_mode);
+        }
+    }
+
+    /**
+     * Returns a string representation of the object.
+     *
+     * @return string
+     */
+    public function __toString(): string {
+        return "JukeboxOpenServerPacket(byteSize=$this->byteSize, mapId=".var_export($this->mapId, true).", jukeboxPlayer=$this->jukeboxPlayer)";
+    }
+
+}
+
+
+
