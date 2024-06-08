@@ -3,7 +3,7 @@
         'name' => 'exilestudios/eolib-php',
         'pretty_version' => 'v1.0.0-rc.3',
         'version' => '1.0.0.0-RC3',
-        'reference' => '234f063f1450aa65546b3892457833327d12a9ee',
+        'reference' => '29835c8402011181999113583e85624202a92a37',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'exilestudios/eolib-php' => array(
             'pretty_version' => 'v1.0.0-rc.3',
             'version' => '1.0.0.0-RC3',
-            'reference' => '234f063f1450aa65546b3892457833327d12a9ee',
+            'reference' => '29835c8402011181999113583e85624202a92a37',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
